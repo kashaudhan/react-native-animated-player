@@ -2,8 +2,8 @@
 /* eslint-disable */
 
 import React, { FunctionComponent } from 'react';
-import { ViewProps } from 'react-native';
-import { GProps } from 'react-native-svg';
+import type { ViewProps } from 'react-native';
+import type { GProps } from 'react-native-svg';
 import IconCloseBold from './IconCloseBold';
 import IconAdd from './IconAdd';
 import IconYoutubeShorts from './IconYoutubeShorts';
@@ -60,8 +60,6 @@ let IconFont: FunctionComponent<Props> = ({ name, ...rest }) => {
     case 'feedback':
       return <IconFeedback key="11" {...rest} />;
   }
-
-  return null;
 };
 
 IconFont = React.memo ? React.memo(IconFont) : IconFont;

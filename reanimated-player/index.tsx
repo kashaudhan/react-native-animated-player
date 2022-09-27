@@ -45,7 +45,7 @@ import Video, {
 } from 'react-native-video';
 import { Text } from './components';
 import { Ripple } from './components/ripple';
-import { TapControler } from './tap-controler';
+import { TapController } from './tap-controller';
 import { palette } from './theme/palette';
 import { bin, isIos, useRefs } from './utils';
 import { VideoLoader } from './video-loading';
@@ -433,7 +433,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
     };
 
     /**
-     * Toggle player full screen state on <Video> component
+     * Toggle player full screen state on /<Video> component
      */
     const enterFullScreen = () => {
       onEnterFullscreen?.();
@@ -750,7 +750,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
     };
     const _renderMore = useCallback(
       () => (
-        <TapControler onPress={onMoreTapHandler}>
+        <TapController onPress={onMoreTapHandler}>
           {renderMore ? (
             renderMore()
           ) : (
@@ -760,7 +760,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
               resizeMode="contain"
             />
           )}
-        </TapControler>
+        </TapController>
       ),
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [renderMore],
@@ -776,7 +776,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
 
     const _renderBack = useCallback(
       () => (
-        <TapControler onPress={onBackTapHandler}>
+        <TapController onPress={onBackTapHandler}>
           {renderBackIcon ? (
             renderBackIcon()
           ) : (
@@ -786,14 +786,14 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
               resizeMode="contain"
             />
           )}
-        </TapControler>
+        </TapController>
       ),
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [renderBackIcon]
     );
     const _renderFullScreenBack = useCallback(
       () => (
-        <TapControler onPress={onBackTapHandler}>
+        <TapController onPress={onBackTapHandler}>
           {renderFullScreenBackIcon ? (
             renderFullScreenBackIcon()
           ) : (
@@ -803,7 +803,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
               resizeMode="contain"
             />
           )}
-        </TapControler>
+        </TapController>
       ),
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [renderBackIcon]
@@ -883,14 +883,14 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                     )}
 
                     {Boolean(onToggleAutoPlay) && (
-                      <TapControler
+                      <TapController
                         onPress={toggleAutoPlay}
                         style={controlStyle.autoPlay}>
                         <AnimatedLottieView
                           animatedProps={autoPlayAnimatedProps}
                           source={require('./assets/lottie-auto-play.json')}
                         />
-                      </TapControler>
+                      </TapController>
                     )}
                     {Boolean(onTapMore) && _renderMore()}
                   </View>
@@ -929,27 +929,27 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                       </Animated.View>
                     )}
                     {Boolean(onToggleAutoPlay) && (
-                      <TapControler
+                      <TapController
                         onPress={toggleAutoPlay}
                         style={controlStyle.autoPlay}>
                         <AnimatedLottieView
                           animatedProps={autoPlayAnimatedProps}
                           source={require('./assets/lottie-auto-play.json')}
                         />
-                      </TapControler>
+                      </TapController>
                     )}
                     {Boolean(onTapMore) && _renderMore()}
                   </View>
                 </Animated.View>
                 <View style={controlStyle.pauseView}>
-                  <TapControler
+                  <TapController
                     onPress={onPauseTapHandler}
                     style={controlStyle.pause}>
                     <AnimatedLottieView
                       animatedProps={playAnimatedProps}
                       source={require('./assets/lottie-play.json')}
                     />
-                  </TapControler>
+                  </TapController>
                 </View>
                 <Animated.View
                   style={[
@@ -959,7 +959,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                   ]}>
                   <View
                     style={[controlStyle.bottomControlGroup, controlStyle.row]}>
-                    <TapControler onPress={toggleTimer}>
+                    <TapController onPress={toggleTimer}>
                       <Text style={controlStyle.timerText}>
                         <Text
                           style={controlStyle.timerText}
@@ -974,8 +974,8 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                           t3
                         />
                       </Text>
-                    </TapControler>
-                    <TapControler
+                    </TapController>
+                    <TapController
                       onPress={toggleFullScreen}
                       style={controlStyle.fullToggle}>
                       {renderFullScreen ? (
@@ -986,7 +986,7 @@ const VideoPlayer = forwardRef<VideoPlayerRef, VideoProps>(
                           source={require('./assets/lottie-fullscreen.json')}
                         />
                       )}
-                    </TapControler>
+                    </TapController>
                   </View>
                   <Animated.View
                     style={[
